@@ -1,6 +1,6 @@
 package calculadora;
 
-public class RPN {
+public class calculadoraPolaca {
 	//VARIABLES
 	private String commando;
 	private NodoPila arriba;
@@ -9,12 +9,12 @@ public class RPN {
 		NodoPila nuevo_nodo = new NodoPila(nuevo_dato, arriba);
 		arriba = nuevo_nodo;
 	}
-	public double popPila( ) {
+	public double establecerValorPila( ) {
 		double dato_arriba = arriba.dato;
 		arriba = arriba.abajo;
 		return dato_arriba;
 	}
-	public RPN(String commando) {
+	public calculadoraPolaca(String commando) {
 		arriba = null;
 		this.commando = commando;
 	}
@@ -36,35 +36,35 @@ public class RPN {
 				numero = Double.parseDouble(temp);
 				pushPila(numero);
 			} else if(commando.charAt(i) == '+') {
-				b = popPila( );
-				a = popPila( );
+				b = establecerValorPila( );
+				a = establecerValorPila( );
 				pushPila(a + b);
 			} else if(commando.charAt(i) == '-') {
-				b = popPila( );
-				a = popPila( );
+				b = establecerValorPila( );
+				a = establecerValorPila( );
 				pushPila(a - b);
 			} else if(commando.charAt(i) == '*') {
-				b = popPila( );
-				a = popPila( );
+				b = establecerValorPila( );
+				a = establecerValorPila( );
 				pushPila(a * b);
 			} else if(commando.charAt(i) == '/') {
-				b = popPila( );
-				a = popPila( );
+				b = establecerValorPila( );
+				a = establecerValorPila( );
 				pushPila(a / b);
 			}
 			else if(commando.charAt(i) == '^') {
-				b = popPila( );
-				a = popPila( );
+				b = establecerValorPila( );
+				a = establecerValorPila( );
 				pushPila(Math.pow(a, b));}
 			else if(commando.charAt(i) == '%') {
-				b = popPila( );
-				a = popPila( );
+				b = establecerValorPila( );
+				a = establecerValorPila( );
 				pushPila(a%b);
 			} else if(commando.charAt(i) != ' ') {
 				throw new IllegalArgumentException( );
 			}
 		}
-		double val = popPila( );
+		double val = establecerValorPila( );
 		if(arriba != null) {
 			throw new IllegalArgumentException( );
 		}

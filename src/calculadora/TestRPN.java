@@ -15,7 +15,7 @@ public class TestRPN{
 				System.out.println("Fin de programa");
 				break;
 			} else {
-				RPN calc = new RPN(linea);
+				calculadoraPolaca calc = new calculadoraPolaca(linea);
 				System.out.printf("El resultado es %f\n", calc.resultado( ));
 			}
 		}

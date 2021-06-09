@@ -19,47 +19,47 @@ public class calculadoraPolaca {
 		this.commando = commando;
 	}
 	public double resultado( ) {
-		double a, b;
+		double valor1, valor2;
 		int j;
 		for(int i = 0; i < commando.length( ); i++) {
 			// si es un digito
 			if(Character.isDigit(commando.charAt(i))) {
 				double numero;
-				// obtener un string a partir del numero
+				// obtener un string valor1 partir del numero
 				String temp = "";
 				for(j = 0; (j < 100) && (Character.isDigit(
 						commando.charAt(i)) || (commando.charAt(i) == '.')); j++, i++) {
 					temp = temp + String.valueOf(commando.
 							charAt(i));
 				}
-				// convertir a double y añadir a la pila
+				// convertir valor1 double y añadir valor1 la pila
 				numero = Double.parseDouble(temp);
 				pushPila(numero);
 			} else if(commando.charAt(i) == '+') {
-				b = establecerValorPila( );
-				a = establecerValorPila( );
-				pushPila(a + b);
+				valor2 = establecerValorPila( );
+				valor1 = establecerValorPila( );
+				pushPila(valor1 + valor2);
 			} else if(commando.charAt(i) == '-') {
-				b = establecerValorPila( );
-				a = establecerValorPila( );
-				pushPila(a - b);
+				valor2 = establecerValorPila( );
+				valor1 = establecerValorPila( );
+				pushPila(valor1 - valor2);
 			} else if(commando.charAt(i) == '*') {
-				b = establecerValorPila( );
-				a = establecerValorPila( );
-				pushPila(a * b);
+				valor2 = establecerValorPila( );
+				valor1 = establecerValorPila( );
+				pushPila(valor1 * valor2);
 			} else if(commando.charAt(i) == '/') {
-				b = establecerValorPila( );
-				a = establecerValorPila( );
-				pushPila(a / b);
+				valor2 = establecerValorPila( );
+				valor1 = establecerValorPila( );
+				pushPila(valor1 / valor2);
 			}
 			else if(commando.charAt(i) == '^') {
-				b = establecerValorPila( );
-				a = establecerValorPila( );
-				pushPila(Math.pow(a, b));}
+				valor2 = establecerValorPila( );
+				valor1 = establecerValorPila( );
+				pushPila(Math.pow(valor1, valor2));}
 			else if(commando.charAt(i) == '%') {
-				b = establecerValorPila( );
-				a = establecerValorPila( );
-				pushPila(a%b);
+				valor2 = establecerValorPila( );
+				valor1 = establecerValorPila( );
+				pushPila(valor1%valor2);
 			} else if(commando.charAt(i) != ' ') {
 				throw new IllegalArgumentException( );
 			}

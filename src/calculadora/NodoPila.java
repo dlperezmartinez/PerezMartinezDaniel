@@ -6,10 +6,12 @@ la expresión: 4 * 5 - 7 / 2 % 3 nos da 1,5 respetando la prioridad de
 los operadores en notación RPN seria: 4 5 * 7 2 / - 3 % (pues no podemos poner los paréntesis para alterar la prioridad)
  */
 class NodoPila {
+	//VARIABLES
+	public NodoPila abajo;
+	public double dato;
+
 	public NodoPila(double dato, NodoPila abajo) {
 		this.dato = dato;
 		this.abajo = abajo;
 	}
-	public NodoPila abajo;
-	public double dato;
 }
